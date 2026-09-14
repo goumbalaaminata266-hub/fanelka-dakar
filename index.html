@@ -2,102 +2,625 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fanelka.Dakar - Maison de Haute Couture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.25; color: #000000; margin: 0; padding: 0; background-color: #f9f9f9; }
-        header { background-color: #ffffff; padding: 20px; text-align: center; border-bottom: 1px solid #e0e0e0; }
-        h1 { font-size: 28px; color: #1a1a1a; margin-bottom: 5px; }
-        .tagline { font-size: 16px; color: #666666; font-style: italic; }
-        .hero { position: relative; background: #000; color: white; text-align: center; padding: 40px 20px; }
-        .hero img { max-width: 100%; height: auto; max-height: 500px; display: block; margin: 0 auto 20px auto; }
-        .hero-text { max-width: 800px; margin: 0 auto; text-align: left; background: rgba(255, 255, 255, 0.95); color: #000000; padding: 20px; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-        h2 { font-size: 24px; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 30px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; background-color: #ffffff; }
-        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #e0e0e0; vertical-align: middle; }
-        th { background-color: #f2f2f2; color: #000000; font-weight: bold; }
-        td img { width: 100px; height: auto; display: block; }
-        .contact-info { background-color: #ffffff; padding: 30px; margin-top: 40px; border: 1px solid #e0e0e0; }
-        ul { list-style-type: none; padding: 0; }
-        ul li { margin-bottom: 10px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            color: #d4af37;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            font-size: 28px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu a:hover {
+            color: #d4af37;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid #d4af37;
+        }
+
+        header h1 {
+            font-size: 42px;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: #d4af37;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23000" width="1200" height="600"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 60px;
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            animation: slideUp 1s ease-out;
+        }
+
+        .hero-content h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #d4af37;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #f0f0f0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #d4af37;
+            color: #1a1a1a;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background: #ffd700;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h2 {
+            font-size: 36px;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #d4af37, #1a1a1a, #d4af37);
+        }
+
+        /* About Section */
+        .about-section {
+            background: white;
+            padding: 60px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .about-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Gallery */
+        .gallery-container {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .gallery-item-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #d4af37, #1a1a1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .gallery-item-info {
+            padding: 20px;
+        }
+
+        .gallery-item-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .gallery-item-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .view-button {
+            display: inline-block;
+            background: #d4af37;
+            color: #1a1a1a;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .view-button:hover {
+            background: #ffd700;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 60px;
+            border-radius: 10px;
+            margin-top: 60px;
+        }
+
+        .contact-section h2 {
+            color: #d4af37;
+        }
+
+        .contact-section h2::after {
+            background: linear-gradient(90deg, #d4af37, white, #d4af37);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item i {
+            font-size: 36px;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .contact-item h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .contact-item p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .contact-link {
+            color: #d4af37;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #ffd700;
+            text-decoration: underline;
+        }
+
+        /* Social Links */
+        .social-links {
+            text-align: center;
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #d4af37;
+            color: #1a1a1a;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 20px;
+        }
+
+        .social-icon:hover {
+            background: #ffd700;
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 3px solid #d4af37;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #1a1a1a;
+                flex-direction: column;
+                gap: 0;
+                border-top: 1px solid #d4af37;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                padding: 15px 20px;
+                border-bottom: 1px solid #333;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            .hero-content {
+                padding: 40px 20px;
+            }
+
+            .hero-content h2 {
+                font-size: 32px;
+            }
+
+            .hero-content p {
+                font-size: 14px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-section {
+                padding: 40px 20px;
+            }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>www.fanelka.dakar</h1>
-    <div class="tagline">La couture avec élégance</div>
-</header>
-
-<div class="hero">
-    <img src="1000199842.png" alt="Fanelka Haute Couture">
-    <div class="hero-text">
-        <h2>Bienvenue chez Fanelka</h2>
-        <p>Fanelka incarne l'excellence de la haute couture dakaroise. Notre maison célèbre l'élégance à travers des pièces uniques, alliant tradition et modernité pour sublimer chaque silhouette avec raffinement.</p>
-    </div>
-</div>
-
-<div class="container">
-    <h2>Catalogue de la Collection</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Modèle</th>
-                <th>Nom de la Création</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><img src="f1a695cd-bd89-489c-96f0-1b81eb9f2c84-1_all_42117.webp" alt="Robe marina brocart"></td>
-                <td><strong>Robe marina brocart</strong></td>
-            </tr>
-            <tr>
-                <td><img src="1000199533.png" alt="Robe marina brocart"></td>
-                <td><strong>Robe marina brocart</strong></td>
-            </tr>
-            <tr>
-                <td><img src="1000198192.jpg" alt="Robe Amina Broderie"></td>
-                <td><strong>Robe Amina Broderie</strong></td>
-            </tr>
-            <tr>
-                <td><img src="1000199666.png" alt="Robe Fifi"></td>
-                <td><strong>Robe Fifi</strong></td>
-            </tr>
-            <tr>
-                <td><img src="1000198135.jpg" alt="Demi-saison homme"></td>
-                <td><strong>Demi-saison homme</strong></td>
-            </tr>
-            <tr>
-                <td><img src="1000199728.png" alt="Robe marina brocart"></td>
-                <td><strong>Robe marina brocart</strong></td>
-            </tr>
-            <tr>
-                <td><img src="1000196383.jpg" alt="Robe marina brocart"></td>
-                <td><strong>Robe marina brocart</strong></td>
-            </tr>
-            <tr>
-                <td><img src="1000196973.jpg" alt="Robe marina"></td>
-                <td><strong>Robe marina</strong></td>
-            </tr>
-            <tr>
-                <td><img src="1000197961.jpg" alt="Ensemble Fifi"></td>
-                <td><strong>Ensemble Fifi</strong></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <div class="contact-info">
-        <h2>Contact & Informations</h2>
-        <ul>
-            <li><strong>Adresse :</strong> P.E rue Kaolack, Dakar</li>
-            <li><strong>Horaires d'ouverture :</strong> Du lundi au samedi de 9h30 à 19h30</li>
-            <li><strong>WhatsApp :</strong> 77 951 89 04</li>
-            <li><strong>Instagram :</strong> Fanelka .Dakar</li>
-            <li><strong>Facebook :</strong> Fanelka .Dakar</li>
-            <li><strong>Livraison :</strong> Partout au Sénégal et à l'international</li>
+<!-- Navigation -->
+<nav>
+    <div class="navbar-container">
+        <a href="#" class="logo">
+            <i class="fas fa-crown"></i> Fanelka
+        </a>
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#collection">Collection</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
-</div>
+</nav>
+
+<!-- Header -->
+<header id="accueil">
+    <h1>🌟 FANELKA.DAKAR 🌟</h1>
+    <div class="tagline">La couture avec élégance - Maison de Haute Couture</div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h2>Bienvenue chez Fanelka</h2>
+        <p>Fanelka incarne l'excellence de la haute couture dakaroise. Notre maison célèbre l'élégance à travers des pièces uniques, alliant tradition et modernité pour sublimer chaque silhouette avec raffinement.</p>
+        <a href="#collection" class="cta-button">Découvrir la collection</a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="container" id="about">
+    <h2>À Propos de Fanelka</h2>
+    <div class="about-section">
+        <p><strong>Fanelka</strong> est une maison de haute couture basée à Dakar, au Sénégal. Depuis sa création, elle s'engage à créer des vêtements d'exception qui reflètent la richesse culturelle africaine.</p>
+        <p>Chaque création est conçue avec soin, en utilisant des matériaux de haute qualité et des techniques de confection traditionnelles enrichies par l'innovation contemporaine.</p>
+        <p>Notre mission : <em>"Habiller chaque femme et homme avec grâce, confiance et fierté."</em></p>
+    </div>
+</section>
+
+<!-- Collection Section -->
+<section class="container" id="collection">
+    <h2>Notre Collection</h2>
+    <div class="gallery-container">
+        <div class="gallery-item">
+            <div class="gallery-item-image">
+                <span>🎨 Robe marina brocart</span>
+            </div>
+            <div class="gallery-item-info">
+                <div class="gallery-item-title">Robe Marina Brocart</div>
+                <div class="gallery-item-desc">Élégance intemporelle avec détails en brocart travaillé</div>
+                <a href="#" class="view-button">En savoir plus</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-image">
+                <span>✨ Robe Amina Broderie</span>
+            </div>
+            <div class="gallery-item-info">
+                <div class="gallery-item-title">Robe Amina Broderie</div>
+                <div class="gallery-item-desc">Broderies raffinées et motifs délicats</div>
+                <a href="#" class="view-button">En savoir plus</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-image">
+                <span>👗 Robe Fifi</span>
+            </div>
+            <div class="gallery-item-info">
+                <div class="gallery-item-title">Robe Fifi</div>
+                <div class="gallery-item-desc">Coupe moderne et confortable pour le quotidien</div>
+                <a href="#" class="view-button">En savoir plus</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-image">
+                <span>👔 Demi-saison Homme</span>
+            </div>
+            <div class="gallery-item-info">
+                <div class="gallery-item-title">Demi-saison Homme</div>
+                <div class="gallery-item-desc">Tenue décontractée et sophistiquée</div>
+                <a href="#" class="view-button">En savoir plus</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-image">
+                <span>👗 Ensemble Fifi</span>
+            </div>
+            <div class="gallery-item-info">
+                <div class="gallery-item-title">Ensemble Fifi</div>
+                <div class="gallery-item-desc">Duo parfait pour occasions spéciales</div>
+                <a href="#" class="view-button">En savoir plus</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-image">
+                <span>🌹 Robe Marina</span>
+            </div>
+            <div class="gallery-item-info">
+                <div class="gallery-item-title">Robe Marina</div>
+                <div class="gallery-item-desc">Style classique revisité avec modernité</div>
+                <a href="#" class="view-button">En savoir plus</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+    <h2>Contactez-Nous</h2>
+    <div class="contact-grid">
+        <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Adresse</h3>
+            <p>P.E rue Kaolack<br>Dakar, Sénégal</p>
+        </div>
+
+        <div class="contact-item">
+            <i class="fas fa-clock"></i>
+            <h3>Horaires</h3>
+            <p>Lundi - Samedi<br>9h30 - 19h30</p>
+        </div>
+
+        <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <h3>Téléphone</h3>
+            <p><a href="https://wa.me/221779518904" class="contact-link">WhatsApp: +221 77 951 89 04</a></p>
+        </div>
+    </div>
+
+    <div class="social-links">
+        <a href="https://wa.me/221779518904" class="social-icon" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://instagram.com/fanelka.dakar" class="social-icon" title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://facebook.com/fanelka.dakar" class="social-icon" title="Facebook">
+            <i class="fab fa-facebook"></i>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Fanelka.Dakar - Maison de Haute Couture</p>
+    <p>Tous droits réservés | Dakar, Sénégal</p>
+</footer>
+
+<script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    // Close menu when link is clicked
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
